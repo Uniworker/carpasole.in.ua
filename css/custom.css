@@ -67,17 +67,17 @@ header > .collapsible-header{
     transition: width 0.3s ease;
 }
 
-.header-links {
+.header-links, .footer-link {
     display: flex;
     position: relative;
     align-items: center;
     min-width: fit-content;
     border-radius: 25px;
-    padding: 5px 10px;
+    padding: 4px 0;
     transition: background-color 0.3s, color 0.3s;
 }
 
-.header-links:after {    
+.header-links::after, .footer-link::after {    
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
     content: "";
@@ -90,7 +90,7 @@ header > .collapsible-header{
     width: 0;
   }
 
-.header-links:hover:after {
+.header-links:hover::after, .footer-link:hover::after {
     width: 100%; 
     left: 0; 
 }
@@ -272,15 +272,6 @@ q::after {
     animation-duration: 1.5s;
 }
 
-
-.footer-link{
-    display: flex;
-    position: relative;
-    align-items: center;
-    min-width: fit-content;
-    color: #fff;
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -361,6 +352,10 @@ q::after {
     width: 56px;
 }
 
+.contacts div {
+    box-shadow: 0 3px 7px #ccc;
+}
+
 .lang span {
     padding: 4px;
 }
@@ -413,6 +408,26 @@ q::after {
 
 .hook {
     background: url("../assets/images/footer.jpg") no-repeat 100% 20%;
+}
+
+.author {
+    background: -webkit-linear-gradient(45deg, #FFAA00, #FF1C00);
+    background: -moz-linear-gradient(45deg, #FFAA00, #FF1C00);
+    background: -o-linear-gradient(45deg, #FFAA00, #FF1C00);
+    background: linear-gradient(45deg, #FFAA00, #FF1C00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.author:hover {
+    background: -webkit-linear-gradient(45deg, #FF1C00, #FFAA00);
+    background: -moz-linear-gradient(45deg, #FF1C00, #FFAA00);
+    background: -o-linear-gradient(45deg, #FF1C00, #FFAA00);
+    background: linear-gradient(45deg, #FF1C00, #FFAA00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 @keyframes fade {
