@@ -6,7 +6,11 @@ let headerWhiteBg = false
 let isHeaderCollapsed = window.innerWidth < RESPONSIVE_WIDTH
 const collapseHeaderItems = document.getElementById("collapsed-items")
 const collapseBtn = document.getElementById("collapse-btn")
-
+const logoWhite = document.getElementById("logoWhite")
+const logoBlack = document.getElementById("logoBlack")
+if(scrollY === 0) {
+    logoBlack.style.display = 'none'
+}
 
 const dropdowns = document.querySelectorAll('.dropdown')
 dropdowns.forEach(dropdown => new Dropdown(`#${dropdown.id}`))
@@ -50,6 +54,8 @@ ScrollTrigger.create({
         if (isHeaderCollapsed){
             collapseBtn.classList.add("primary-text-color")
         }
+        logoBlack.style.display = 'block'
+        logoWhite.style.display = 'none'
         headerWhiteBg = true
     },
     onEnterBack: () => {
@@ -58,6 +64,8 @@ ScrollTrigger.create({
         headerLinks.forEach(e => {
             e.classList.remove("header-white-bg")
         })
+        logoBlack.style.display = 'none'
+        logoWhite.style.display = 'block'
         collapseBtn.classList.remove("primary-text-color")
         collapseBtn.classList.add("tw-text-white")
         headerWhiteBg = false
@@ -72,6 +80,9 @@ const cottage1SlideShow = new SlideShow(cottage1Container, false, 5000)
 
 const cottage2Container = document.querySelector(".cottage2-container")
 const cottage2SlideShow = new SlideShow(cottage2Container, false, 5000)
+
+const cottage3Container = document.querySelector(".cottage3-container")
+const cottage3SlideShow = new SlideShow(cottage3Container, false, 5000)
 
 const reviewContainer = document.querySelector(".review-container")
 const reviewSlideShow = new SlideShow(reviewContainer, true, 10000)

@@ -36,7 +36,7 @@
 }
 
 html {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
     min-width: 300px;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -57,8 +57,8 @@ header > .collapsible-header{
     transition: width 0.3s ease;
 }
 
-.nunito-font {
-    font-family: "Nunito", sans-serif;
+.tenor-sans {
+    font-family: "Tenor Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
 }

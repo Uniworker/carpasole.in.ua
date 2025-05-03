@@ -21,8 +21,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Tenor+Sans&display=swap"
         rel="stylesheet">
+
 
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/custom.css" />
@@ -34,15 +35,14 @@
 </head>
 
 <body class="flex min-h-[100vh] w-full flex-col bg-[#ffffff]">
-    <header
-        class="fixed top-0 z-20 flex h-[60px] w-full px-[10%] max-lg:mr-auto lg:justify-around">
-        <div class="absolute left-0 top-0 z-[-1] h-0 w-full bg-white shadow-md"
-            id="expanding-header-bg">
+    <header class="fixed top-0 z-20 flex h-[60px] w-full px-[10%] max-lg:mr-auto lg:justify-around">
+        <div class="absolute left-0 top-0 z-[-1] h-0 w-full bg-white shadow-md" id="expanding-header-bg">
         </div>
 
         <div class="flex w-max place-items-center gap-3">
-            <div class="h-full p-[4px]">
-                <img src="logoAlt.png" alt="logo" class="object h-full w-full" />
+            <div class="h-full m-0 p-0">
+                <img src="logoBlack.png" alt="logo" id="logoBlack" class="object h-full w-full" />
+                <img src="logoWhite.png" alt="logo" id="logoWhite" class="object h-full w-full" />
             </div>
         </div>
         <div class="collapsible-header animated-collapse" id="collapsed-items">
@@ -55,12 +55,13 @@
             </div>
             <div
                 class="flex place-items-center gap-[20px] text-xl max-lg:w-full max-lg:place-content-center max-lg:!text-white">
-                <a href="https://www.instagram.com/karpasoleresidence?igsh=MXQwaTNocml2eXgzMQ%3D%3D&utm_source=qr" target="_blank" rel="no-referrer" area-label="instagram"
+                <a href="https://www.instagram.com/karpasoleresidence?igsh=MXQwaTNocml2eXgzMQ%3D%3D&utm_source=qr"
+                    target="_blank" rel="no-referrer" area-label="instagram"
                     class="header-links transition-colors duration-[0.3s]">
                     <i class="bi bi-instagram"></i>
                 </a>
-                <a href="https://www.tiktok.com/@karpasole?_t=ZN-8u4HdsnOg2Y&_r=1" target="_blank" rel="no-referrer" area-label="tiktok"
-                    class="header-links transition-colors duration-[0.3s]">
+                <a href="https://www.tiktok.com/@karpasole?_t=ZN-8u4HdsnOg2Y&_r=1" target="_blank" rel="no-referrer"
+                    area-label="tiktok" class="header-links transition-colors duration-[0.3s]">
                     <i class="bi bi-tiktok"></i>
                 </a>
             </div>
@@ -73,14 +74,13 @@
                 <span class="header-links">АНГ</span>
             </div>
         </div>
-        <button class="bi bi-list absolute right-3 top-3 z-50 text-3xl lg:hidden"
-            onclick="toggleHeader()" aria-label="menu" id="collapse-btn">
+        <button class="bi bi-list absolute right-3 top-3 z-50 text-3xl lg:hidden" onclick="toggleHeader()"
+            aria-label="menu" id="collapse-btn">
             <!--<i class="bi bi-list"></i> -->
         </button>
     </header>
 
-    <section
-        class="relative flex h-[100vh] w-full max-w-[100vw] flex-col overflow-hidden max-lg:h-[100dvh]"
+    <section class="relative flex h-[100vh] w-full max-w-[100vw] flex-col overflow-hidden max-lg:h-[100dvh]"
         id="hero-section">
         <div class="overlay-gradient absolute top-0 h-full w-full max-lg:z-[2] max-lg:!bg-[#0a0a0a]">
         </div>
@@ -91,7 +91,7 @@
                 Оренда котеджів в мальовничих Карпатах
             </h1>
 
-            <h2 class="nunito-font text-6xl pt-2 font-bold uppercase max-md:text-4xl">
+            <h2 class="tenor-sans text-6xl pt-2 font-bold uppercase max-md:text-4xl">
                 Karpasole
             </h2>
             <span class="mt-2 w-full text-justify text-lg max-md:text-base">
@@ -118,14 +118,13 @@
         </div>
     </section>
 
-    <section
-        class="about flex min-h-[60vh] w-full justify-between bg-[#fff] max-lg:flex-col max-lg:gap-[4%]">
-        <div
-            class="flex h-[1000px] w-[50%] overflow-hidden max-md:mt-[5%] max-md:h-[300px] max-md:w-[300px]">
+    <section class="about flex min-h-[60vh] w-full justify-between bg-[#fff] max-lg:flex-col max-lg:gap-[4%]">
+        <div class="flex h-[1000px] w-[50%] overflow-hidden max-md:mt-[5%] max-md:h-[300px] max-md:w-[300px]">
             <img src="./assets/images/view1.JPG" alt="" class="w-full object-cover" />
         </div>
-        <div class="flex h-full self-center ml-auto flex-col gap-[5%] max-lg:mt-4 max-lg:gap-[3%] max-lg:text-center -order-1">
-            <h2 class="nunito-font w-[70%] primary-text-color text-5xl font-medium uppercase max-md:text-3xl">
+        <div
+            class="flex h-full self-center ml-auto flex-col gap-[5%] max-lg:mt-4 max-lg:gap-[3%] max-lg:text-center -order-1">
+            <h2 class="tenor-sans w-[70%] primary-text-color text-5xl font-medium uppercase max-md:text-3xl">
                 Про котеджне містечко
             </h2>
             <div class="mt-8 max-w-[500px] text-justify">
@@ -146,10 +145,10 @@
 
     <section
         class="select flex min-h-[100vh] w-full flex-col place-items-center gap-[10%] pt-20 px-25 bg-[#000] max-md:h-max max-md:min-h-[unset] max-md:gap-[4%] max-md:px-[5%]">
-        <h2 class="nunito-font text-5xl font-medium uppercase text-white max-md:text-2xl">
+        <h2 class="tenor-sans text-5xl font-medium uppercase text-white max-md:text-2xl">
             Орендувати котедж
         </h2>
-        <h3 class="nunito-font text-white text-1xl mt-4">Забронюйте незабутній відпичинок в мальовничих Карпатах</h3>
+        <h3 class="text-white text-1xl mt-4">Забронюйте незабутній відпичинок в мальовничих Карпатах</h3>
         <!--
         <div
             class="mt-[5%] flex w-full place-content-center place-items-center justify-around gap-[10%] max-lg:mt-4 max-lg:flex-col max-lg:gap-5 max-md:mt-8">
@@ -221,9 +220,8 @@
             </div>
         </div>
         -->
-        <div
-            class="my-[7%] flex w-full flex-wrap place-content-center place-items-center justify-between gap-8 max-lg:my-4 max-lg:flex-col max-lg:gap-5 max-md:my-8">
-            <div class="flex h-[500px] w-[400px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg"
+        <div class="my-[7%] flex w-full flex-wrap place-content-center place-items-center gap-8 max-lg:my-4 max-lg:flex-col max-lg:gap-5 max-md:my-8">
+            <div class="flex h-[500px] w-[500px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg"
                 target="_blank" rel="noreferrer" href="">
                 <div class="relative h-[250px] w-full bg-white">
                     <div class="cottage0-container flex flex-col">
@@ -269,7 +267,7 @@
                     <div class="flex flex-col gap-8 my-8 text-center items-center">
                         <h3 class="text-2xl font-semibold">Котедж "Надія"</h3>
                         <h4 class="text-lg text-[#595858]">
-                            ₴1500/доба
+                            ₴2000/доба
                         </h4>
                         <a href="" target="_blank" rel="noreferrer"
                             class="flex gap-2 bg-[#F8B500] p-4 px-[32px] text-[#0a0a0a] transition-transform duration-[0.3s] hover:translate-x-1 max-md:p-2">
@@ -280,7 +278,7 @@
                 </div>
             </div>
 
-            <div class="flex h-[500px] w-[400px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg"
+            <div class="flex h-[500px] w-[500px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg"
                 target="_blank" rel="noreferrer" href="">
                 <div class="relative h-[250px] w-full bg-white">
                     <div class="cottage1-container flex flex-col">
@@ -337,7 +335,7 @@
                 </div>
             </div>
 
-            <div class="flex h-[500px] w-[400px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg"
+            <div class="flex h-[500px] w-[500px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg"
                 target="_blank" rel="noreferrer" href="">
                 <div class="relative h-[250px] w-full bg-white">
                     <div class="cottage2-container flex flex-col">
@@ -383,7 +381,64 @@
                     <div class="flex flex-col gap-8 my-8 text-center items-center">
                         <h3 class="text-2xl font-semibold">Котедж "Тріумф"</h3>
                         <h4 class="text-lg text-[#595858]">
-                            ₴4500/доба
+                            ₴4000/доба
+                        </h4>
+                        <a href="" target="_blank" rel="noreferrer"
+                            class="flex gap-2 bg-[#F8B500] p-4 px-[32px] text-[#0a0a0a] transition-transform duration-[0.3s] hover:translate-x-1 max-md:p-2">
+                            <span>Замовити</span>
+                            <i class="bi bi-bag-check"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex h-[500px] w-[500px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg"
+                target="_blank" rel="noreferrer" href="">
+                <div class="relative h-[250px] w-full bg-white">
+                    <div class="cottage3-container flex flex-col">
+                        <div class="flex h-[250px] w-full">
+                            <div class="slides fade">
+                                <img src="./assets/images/cottage3-1.jpg" class="h-full w-full object-cover" alt="" />
+                            </div>
+                            <div class="slides fade">
+                                <img src="./assets/images/cottage3-2.jpg" class="h-full w-full object-cover" alt="" />
+                            </div>
+                            <div class="slides fade">
+                                <img src="./assets/images/cottage3-3.jpg" class="h-full w-full object-cover" alt="" />
+                            </div>
+                            <div class="slides fade">
+                                <img src="./assets/images/cottage3-4.jpg" class="h-full w-full object-cover" alt="" />
+                            </div>
+                            <div class="slides fade">
+                                <img src="./assets/images/cottage3-5.jpg" class="h-full w-full object-cover" alt="" />
+                            </div>
+                            <div class="slides fade">
+                                <img src="./assets/images/cottage3-6.jpg" class="h-full w-full object-cover" alt="" />
+                            </div>
+                            <div class="slides fade">
+                                <img src="./assets/images/cottage3-7.jpg" class="h-full w-full object-cover" alt="" />
+                            </div>
+                            <div class="slides fade">
+                                <img src="./assets/images/cottage3-8.jpg" class="h-full w-full object-cover" alt="" />
+                            </div>
+                        </div>
+                        <span class="prev flex items-center justify-center"><i class="bi bi-arrow-left"></i></span>
+                        <span class="next flex items-center justify-center"><i class="bi bi-arrow-right"></i></span>
+                        <div class="dots-container mt-auto absolute bottom-0 left-[50%] -translate-[50%]">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-8 my-8 text-center items-center">
+                        <h3 class="text-2xl font-semibold">Котедж "Водограй"</h3>
+                        <h4 class="text-lg text-[#595858]">
+                            ₴5000/доба
                         </h4>
                         <a href="" target="_blank" rel="noreferrer"
                             class="flex gap-2 bg-[#F8B500] p-4 px-[32px] text-[#0a0a0a] transition-transform duration-[0.3s] hover:translate-x-1 max-md:p-2">
@@ -404,15 +459,14 @@
         </div>
         <div class="mt-[5%] flex self-center mr-auto h-full flex-col gap-[5%]">
             <div class="mxa-md:text-center flex flex-col gap-2">
-                <h2 class="nunito-font text-3xl font-medium max-md:text-xl">
+                <h2 class="tenor-sans text-3xl font-medium max-md:text-xl">
                     Ми зв'яжемося з вами
                 </h2>
-                <h2 class="nunito-font primary-text-color text-5xl font-medium uppercase max-md:text-3xl">
+                <h2 class="tenor-sans primary-text-color text-5xl font-medium uppercase max-md:text-3xl">
                     Залишіть заявку
                 </h2>
             </div>
-            <form
-                class="mt-4 flex min-w-[300px] flex-col place-content-center gap-3 p-2 max-md:max-w-[350px]">
+            <form class="mt-4 flex min-w-[300px] flex-col place-content-center gap-3 p-2 max-md:max-w-[350px]">
                 <div class="flex flex-col gap-4 max-md:w-[340px]">
                     <div class="flex flex-col gap-1">
                         <div class="text-gray-500">Ім'я</div>
@@ -434,8 +488,7 @@
                     </div>
                 </div>
 
-                <button type="submit"
-                    class="btn w-full mt-5 transition-transform duration-[0.3s] hover:translate-x-2">
+                <button type="submit" class="btn w-full mt-5 transition-transform duration-[0.3s] hover:translate-x-2">
                     <span>Надіслати</span>
                     <i class="bi bi-arrow-right"></i>
                 </button>
@@ -444,10 +497,10 @@
     </section>
 
     <section class="feedback mt-5 flex w-full flex-col place-items-center p-[5%]">
-        <h2 class="nunito-font text-5xl font-medium uppercase text-black max-md:text-2xl">
+        <h2 class="tenor-sans text-5xl font-medium uppercase text-black max-md:text-2xl">
             Відгуки гостей
         </h2>
-        <h3 class="nunito-font text-black text-1xl mt-4">Наше котеджне містечко відвідують сотні гостей щороку</h3>
+        <h3 class="text-black text-1xl mt-4">Наше котеджне містечко відвідують сотні гостей щороку</h3>
         <div class="mt-[5%] flex flex-col w-full place-content-center gap-20">
             <div class="review-container flex flex-col">
                 <div class="flex h-[150px] max-w-[550px] max-md:h-[150px]">
@@ -505,7 +558,8 @@
             <div class="contacts flex justify-between items-center">
                 <div class="w-[28%] min-h-36 text-center text-lg relative p-4">
                     <p class="text-2xl text-[#046307]"><i class="bi bi-person-fill"></i></p>
-                    <p class="absolute top-[50%] left-[50%] -translate-[50%] text-shadow-sm"><a href="tel:0671300070">+380 67 130 00 70</a></p>
+                    <p class="absolute top-[50%] left-[50%] -translate-[50%] text-shadow-sm"><a
+                            href="tel:0671300070">+380 67 130 00 70</a></p>
                 </div>
                 <div class="w-[28%] min-h-36 text-center text-sm p-4">
                     <p class="text-2xl text-[#046307]"><i class="bi bi-geo-alt-fill"></i></p>
@@ -517,13 +571,13 @@
                 </div>
                 <div class="w-[28%] min-h-36 text-center text-lg relative p-4">
                     <p class="text-2xl text-[#046307]"><i class="bi bi-envelope-at-fill"></i></p>
-                    <p class="absolute top-[50%] left-[50%] -translate-[50%] text-shadow-sm"><a href="mailto:karpasole@ukr.net">karpasole@ukr.net</a></p>
+                    <p class="absolute top-[50%] left-[50%] -translate-[50%] text-shadow-sm"><a
+                            href="mailto:karpasole@ukr.net">karpasole@ukr.net</a></p>
                 </div>
             </div>
         </div>
     </section>
-    <section
-        class="map flex w-full flex-col place-content-center place-items-center">
+    <section class="map flex w-full flex-col place-content-center place-items-center">
         <div class="mt-[5%] flex w-full flex-col place-content-center place-items-center gap-5">
             <iframe src="https://www.google.com/maps/embed" class="h-[350px] w-full max-md:w-full" style="border: 0"
                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -531,7 +585,7 @@
     </section>
     <footer class="flex w-full place-content-between bg-gray-900 py-[5%] px-[10%] text-white max-lg:flex-col">
         <div class="flex h-full w-[250px] flex-col gap-4 max-md:w-full">
-            <img src="logo.png" alt="logo" class="max-h-[100px] max-w-[100px]"/>
+            <img src="logo.png" alt="logo" class="max-h-[100px] max-w-[100px]" />
             <h2 class="text-xl p-0 m-0">Оренда котеджів в мальовничих Карпатах</h2>
         </div>
 
@@ -556,8 +610,9 @@
     <div class="bottom w-full bg-black px-[10%] py-1">
         <div class="flex justify-between items-center">
             <p><a href="assets/doc.pdf" class="text-xs text-gray-400" target="_blank">Публічна оферта</a></p>
-            <p class="text-gray-400 text-xs">Created by <a href="https://www.youtube.com/channel/UC-ii73NUvqnJhGpieMlMstQ" target="_blank"
-                title="Follow me" class="author text-sm uppercase">uniworker</a></p>
+            <p class="text-gray-400 text-xs">Created by <a
+                    href="https://www.youtube.com/channel/UC-ii73NUvqnJhGpieMlMstQ" target="_blank" title="Follow me"
+                    class="author text-sm uppercase">uniworker</a></p>
             <p class="text-xs text-gray-400">Всі права захищено © Karpasole 2O25</p>
         </div>
     </div>
