@@ -1,3 +1,12 @@
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 const RESPONSIVE_WIDTH = 1024
 
 gsap.registerPlugin(ScrollTrigger)
@@ -6,23 +15,52 @@ let headerWhiteBg = false
 let isHeaderCollapsed = window.innerWidth < RESPONSIVE_WIDTH
 const collapseHeaderItems = document.getElementById("collapsed-items")
 const collapseBtn = document.getElementById("collapse-btn")
-const logoWhite = document.getElementById("logoWhite")
-const logoBlack = document.getElementById("logoBlack")
-if(scrollY === 0) {
-    logoBlack.style.display = 'none'
-}
-
-const dropdowns = document.querySelectorAll('.dropdown')
-dropdowns.forEach(dropdown => new Dropdown(`#${dropdown.id}`))
-
+const expandingBg = document.getElementById("expanding-header-bg")
+const popupEl = document.getElementById('popup1');
+const modal = new tingle.modal({
+    footer: false,
+    stickyFooter: false,
+    closeMethods: ['button', 'escape'],
+    closeLabel: "Close",
+    cssClass: ['popup1'],
+    onOpen: function () {
+        console.log('modal opened')
+    },
+    onClose: function () {
+        console.log('modal closed')
+    }
+})
+const form = document.forms.clients
+const formEls = [
+    form.elements.name,
+    form.elements.phone,
+    form.elements.email,
+    form.elements.message
+];
+formEls.forEach((element, index) => {
+    const maxLength = element.getAttribute('maxlength');
+    const counterElement = document.getElementById(`counter${index}`);
+    if (counterElement && maxLength) {
+        counterElement.innerHTML = `${maxLength}`;
+    }
+});
+form.addEventListener('input', (e) => {
+    const targetElement = e.target;
+    const index = formEls.indexOf(targetElement);
+    if (index !== -1) {
+        const maxLength = targetElement.getAttribute('maxlength');
+        const counterElement = document.getElementById(`counter${index}`);
+        if (counterElement && maxLength) {
+            counterElement.innerHTML = `${maxLength - targetElement.value.length}`;
+        }
+    }
+    form.elements.phone.value = targetElement.value.replace(/[^0-9,+]/g, '')
+});
 
 gsap.to("#hero-section", {
     scale: 1,
     duration: 30
 })
-
-
-const expandingBg = document.getElementById("expanding-header-bg")
 
 gsap.to(expandingBg, {
 
@@ -54,8 +92,6 @@ ScrollTrigger.create({
         if (isHeaderCollapsed){
             collapseBtn.classList.add("primary-text-color")
         }
-        logoBlack.style.display = 'block'
-        logoWhite.style.display = 'none'
         headerWhiteBg = true
     },
     onEnterBack: () => {
@@ -64,16 +100,11 @@ ScrollTrigger.create({
         headerLinks.forEach(e => {
             e.classList.remove("header-white-bg")
         })
-        logoBlack.style.display = 'none'
-        logoWhite.style.display = 'block'
         collapseBtn.classList.remove("primary-text-color")
         collapseBtn.classList.add("tw-text-white")
         headerWhiteBg = false
     }
 })
-
-const cottage0Container = document.querySelector(".cottage0-container")
-const cottage0SlideShow = new SlideShow(cottage0Container, false, 5000)
 
 const cottage1Container = document.querySelector(".cottage1-container")
 const cottage1SlideShow = new SlideShow(cottage1Container, false, 5000)
@@ -88,19 +119,17 @@ const reviewContainer = document.querySelector(".review-container")
 const reviewSlideShow = new SlideShow(reviewContainer, true, 10000)
 
 function onHeaderClickOutside(e) {
-
     if (!collapseHeaderItems.contains(e.target)) {
         toggleHeader()
     }
-
 }
 
 function toggleHeader() {
-    console.log("Colappse", isHeaderCollapsed)
+    console.log("Collapse", isHeaderCollapsed)
     if (isHeaderCollapsed) {
         // collapseHeaderItems.classList.remove("max-md:tw-opacity-0")
         collapseHeaderItems.classList.add("!tw-opacity-100")
-        collapseHeaderItems.style.width = "60vw"
+        collapseHeaderItems.style.width = "50vw"
         collapseBtn.classList.remove("bi-list", "primary-text-color")
         collapseBtn.classList.add("bi-x", "tw-text-white")
         isHeaderCollapsed = false
@@ -117,16 +146,31 @@ function toggleHeader() {
 
     }
 }
-
-function responsive() {
-    if (window.innerWidth > RESPONSIVE_WIDTH) {
-        collapseHeaderItems.style.width = ""
-        
-    }else{
-        isHeaderCollapsed = true
-        collapseBtn.classList.add("bi-list", headerWhiteBg ? "primary-text-color" : null)
-    }
+if (window.innerWidth > RESPONSIVE_WIDTH) {
+    collapseHeaderItems.style.width = ""
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('#popup1')) {
+            modal.open()
+            modal.setContent(`<h1 class="text-xl text-center tenor-sans font-bold bg-black text-white">Підписуйтеся на наш ТікТок та Інстаграм</h1>
+                <video autoplay loop>
+                <source src="assets/video/lg.mp4" type="video/mp4">
+                <source src="assets/video/lg.webm" type="video/webm">
+                Your browser does not support the video tag.
+                </video>`)
+        }
+    })
+} else {
+    isHeaderCollapsed = true
+    collapseBtn.classList.add("bi-list", headerWhiteBg ? "primary-text-color" : null)
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('#popup1')) {
+            modal.open()
+            modal.setContent(`<h1 class="text-xl text-center tenor-sans font-bold bg-black text-white">Більше в нашому ТікТок та Інстаграм</h1>
+        <video autoplay loop>
+        <source src="assets/video/sm.mp4" type="video/mp4">
+        <source src="assets/video/sm.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>`)
+        }
+    })
 }
-
-window.addEventListener("resize", responsive)
-
