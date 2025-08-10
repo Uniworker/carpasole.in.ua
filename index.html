@@ -24,28 +24,19 @@
     <meta property="og:locale" content="uk_RU" />
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Tenor+Sans&display=swap" rel="stylesheet">
 
     <meta name="author" content="Uniworker Studio">
     <meta name="copyright" content="&copy; 2025 Uniworker Studio. All rights reserved.">
     <meta name="theme-color" content="#046307">
 
     <link rel="stylesheet" href="css/tingle.min.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/custom.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
-        integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>var submitted = false;</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
-        integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"
-        integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <script src="js/tingle.min.js" defer></script>
     <script src="js/plugins.js" defer></script>
     <script src="js/scripts.js" defer></script>
@@ -105,7 +96,7 @@
                 Оренда котеджів в мальовничих Карпатах
             </h1>
 
-            <h2 class="tenor-sans text-6xl pt-2 font-bold uppercase max-md:text-5xl">
+            <h2 id="header-title" class="tenor-sans text-6xl pt-2 font-bold uppercase max-md:text-5xl">
                 Karpasole
             </h2>
             <span class="mt-2 w-full bg text-justify text-lg max-md:text-base">
@@ -133,11 +124,11 @@
         <div class="flex h-[1000px] w-[50%] overflow-hidden max-lg:mt-8 max-lg:h-[300px] max-lg:w-full">
             <img src="./assets/images/view1.JPG" alt="" class="w-full object-cover" />
         </div>
-        <div class="flex h-full self-center flex-col -order-1 gap-[5%] max-lg:mt-4 max-lg:gap-[3%] max-lg:text-center lg:ml-20">
-            <h2 class="tenor-sans w-[70%] primary-text-color text-5xl font-medium uppercase max-lg:text-3xl max-lg:w-full max-lg:px-4 max-lg:mt-8">
+        <div class="flex h-full self-center flex-col -order-1 gap-[5%] max-lg:mt-4 max-lg:gap-[3%] max-lg:text-center">
+            <h2 id="title1" class="tenor-sans w-[75%] self-center primary-text-color text-5xl font-medium uppercase max-lg:text-3xl max-lg:w-full max-lg:px-4 max-lg:mt-8">
                 Котеджне містечко серед лісу
             </h2>
-            <div class="mt-8 max-w-[500px] text-justify text-balance max-lg:max-w-[700px] max-lg:px-8 max-lg:mt-8">
+            <div class="mt-8 max-w-[600px] self-center text-justify text-balance max-lg:max-w-[750px] max-lg:px-8 max-lg:mt-8">
                 Запрошуємо вас у місце, де панує тиша, спокій і свіже повітря. Тут немає метушні — тільки природа, комфорт і затишок. На території — 7 котеджів, кожен зі своєю атмосферою. Є мангал, щоб приготувати щось смачне просто неба. За потреби ми готуємо вечері — домашні, теплі, зі смаком справжнього відпочинку. Поруч із територією ростуть лісові гриби, а просто у нас під руками — малина, яку можна збирати і смакувати. Ідеальне місце для відпочинку з родиною, друзями або просто для себе.<br>Бронюй свій відпочинок уже зараз — гарні дати розбирають швидко.
             </div>
         </div>
@@ -152,34 +143,34 @@
         
         <div class="my-[7%] flex w-full flex-wrap place-content-center place-items-center gap-8 max-lg:flex-col max-lg:gap-10 max-lg:my-12">
 
-            <div class="flex h-[550px] w-[400px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg max-lg:h-[600px]"
+            <div id="card1" class="flex h-[550px] w-[400px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg max-lg:h-[600px]"
                 target="_blank" rel="noreferrer" href="">
                 <div class="relative h-[250px] bg-white">
                     <div class="cottage1-container flex flex-col">
                         <div class="flex h-[250px] w-full">
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage1-4.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage1-1.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage1-2.jpg" class="h-full w-full object-cover" alt="" />
+                            </div>
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage1-5.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage1-6.jpg" class="h-full w-full object-cover" alt="" />
-                            </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage1-7.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage1-8.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage1-9.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage1-10.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage1-11.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage1-12.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
                         </div>
                         <span class="prev flex items-center justify-center"><i class="bi bi-arrow-left"></i></span>
@@ -210,34 +201,34 @@
                 </div>
             </div>
 
-            <div class="flex h-[550px] w-[400px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg max-lg:h-[600px]"
+            <div id="card2" class="flex h-[550px] w-[400px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg max-lg:h-[600px]"
                 target="_blank" rel="noreferrer" href="">
                 <div class="relative h-[250px] bg-white">
                     <div class="cottage2-container flex flex-col">
                         <div class="flex h-[250px] w-full">
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage2-3.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage0.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage2-4.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage1-3.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage2-5.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage0-1.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage2-6.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/slide6.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage2-7.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage0-4.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage2-8.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage0-5.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage2-9.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage0-6.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage2-10.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/cottage0-7.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
                         </div>
                         <span class="prev flex items-center justify-center"><i class="bi bi-arrow-left"></i></span>
@@ -268,33 +259,33 @@
                 </div>
             </div>
 
-            <div class="flex h-[550px] w-[400px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg max-lg:h-[600px]"
+            <div id="card3" class="flex h-[550px] w-[400px] flex-col place-items-center gap-4 overflow-hidden bg-[#fff] text-black shadow-lg max-lg:h-[600px]"
                 target="_blank" rel="noreferrer" href="">
                 <div class="relative h-[250px] bg-white">
                     <div class="cottage3-container flex flex-col">
                         <div class="flex h-[250px] w-full">
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage3-1.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage3-2.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage3-3.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
-                                <img src="./assets/images/cottage3-4.jpg" class="h-full w-full object-cover" alt="" />
+                            <div class="slides fadein">
+                                <img src="./assets/images/slide5.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage3-5.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage3-6.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage3-7.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
-                            <div class="slides fade">
+                            <div class="slides fadein">
                                 <img src="./assets/images/cottage3-8.jpg" class="h-full w-full object-cover" alt="" />
                             </div>
                         </div>
@@ -312,7 +303,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-8 my-8 text-center items-center max-lg:gap-10">
-                        <h3 class="text-2xl font-semibold max-lg:text-3xl">Котедж "Максимум"</h3>
+                        <h3 class="tenor-sans text-2xl font-semibold max-lg:text-3xl">Котедж "Максимум"</h3>
                         <p class="text-sm text-[#595858] max-lg:text-base">Двохповерховий, розрахований на 6 осіб</p>
                         <h4 class="text-lg text-black max-lg:text-2xl">
                             ₴6000/доба
@@ -332,8 +323,8 @@
         <div class="flex h-[1000px] w-[50%] overflow-hidden max-md:hidden">
             <img src="./assets/images/view2.JPG" alt="" class="w-full object-cover" />
         </div>
-        <div class="flex self-center mr-auto h-full flex-col gap-[5%] max-md:mt-20 max-md:mr-0">
-            <div class="mxa-md:text-center flex flex-col gap-2 max-lg:gap-4">
+        <div class="relative flex self-center mr-[7%] h-full flex-col gap-[5%] max-md:mt-20 max-md:mr-0">
+            <div id="title3" class="max-md:text-center flex flex-col gap-2 max-lg:gap-4">
                 <h2 class="tenor-sans text-3xl font-medium max-lg:w-full max-lg:px-2 max-lg:mt-8">
                     Ми зв'яжемося з вами
                 </h2>
@@ -341,6 +332,7 @@
                     Залишіть заявку
                 </h3>
             </div>
+            <div id="formloader" class="loader absolute w-16 left-[50%] top-[50%] translate-[100%]" hidden></div>
             <form class="mt-4 flex min-w-[300px] flex-col place-content-center gap-3 p-2 max-lg:max-w-[350px] max-md:my-8" name="clients" id="clients" enctype="text/plain" autocomplete="on" action="https://docs.google.com/forms/d/e/1FAIpQLSfZaN_fJs_9_aWMOYSEaw9YHjokethCJJ-TJ7XfAjnIP5szLQ/formResponse?" target="redirect" onsubmit="submitted=true;">
                 <div class="flex flex-col gap-4 max-lg:gap-8">
                     <div class="flex flex-col gap-1 relative">
@@ -365,13 +357,12 @@
                         <span id="counter3" class="text-sm absolute top-0 left-[95%] text-gray-500 font-bold"></span>
                     </div>
                 </div>
-
-                <button type="submit" class="btn w-full mt-5 cursor-pointer transition-transform duration-[0.3s] hover:translate-x-2">
+                <button type="submit" name="sender" class="btn w-full mt-5 cursor-pointer transition-transform duration-[0.3s] hover:translate-x-2">
                     <span>Надіслати</span>
                     <i class="bi bi-arrow-right"></i>
                 </button>
             </form>
-            <iframe name="redirect" id="redirect" style="display:none;" onload="if(submitted) {}"></iframe>
+            <iframe name="redirect" id="redirect" style="display:none;" onload="if(submitted) {}" allow="https://docs.google.com/" allowfullscreen hidden></iframe>
         </div>
     </section>
 
@@ -383,8 +374,8 @@
         <div class="mt-[5%] flex flex-col w-full place-content-center gap-20 max-md:mt-[25%]">
             <div class="review-container flex flex-col">
                 <div class="flex h-[150px] max-w-[550px] max-md:h-[150px]">
-                    <div class="slides fade text-center text-lg">
-                        <q class="block italic text-black relative max-h-20 overflow-y-hidden">
+                    <div class="slides fadein text-center text-lg">
+                        <q class="block italic font-light text-black relative max-h-20 overflow-y-hidden">
                             Найкраще місце для відпочинку душі та тіла. Гармонія з природою та насолода від краєвидів. Спів пташок та дзюркотіння води наче мелодія колискових. Неймовірно затишне місце для чудового відпочинку! Рекомендую!
                         </q>
                         <div class="mt-2 text-yellow-400">
@@ -397,8 +388,8 @@
                         <p class="mt-3 underline"><a href="https://goolnk.com/mmRyOB">@ Мирослава Чуревич</a></p>
                     </div>
 
-                    <div class="slides fade text-center text-lg">
-                        <q class="block italic text-black relative max-h-20 overflow-y-hidden">
+                    <div class="slides fadein text-center text-lg">
+                        <q class="block italic font-light text-black relative max-h-20 overflow-y-hidden">
                             Чудовий комплекс з НЕЙМОВІРНИМИ краєвидами на карпатські гори. Мандрували тут лісовими стежками, слухаючи гомін потоку, милуючись квітами та грибами, вдихаючи п'янке гірське повітря...І все це на території комплексу. А потім захоплено зазирали в озерце з блискучими рибками, поглядали на сходи, які ніби огортали теплом хатинки комплексу та кликали зазирнути у таємниці гуцульського краю. Не повірите, але ще й форелі тут наловили під звуки падаючих потічків, що линуть в озеро. Гречно дякуємо турботливому уважному привітному персоналу за чисті комфортні номери та кухарочці за апетитні запашні гуцульські страви. РЕКОМЕНДУЄМО відвідати комплекс всім, хто хоче насолодитися СУПЕРОВИМ відпочинком.
                         </q>
                         <div class="mt-2 text-yellow-400">
@@ -416,13 +407,13 @@
                     <span class="dot"></span>
                 </div>
             </div>
-            <div class="contacts flex justify-between items-center max-lg:flex-col max-lg:gap-10 max-lg:px-2 max-lg:mb-8">
-                <div class="w-[28%] min-h-36 text-center text-lg relative p-4 max-lg:w-full">
+            <div class="contacts flex justify-around items-center max-lg:flex-col max-lg:gap-10 max-lg:px-2 max-lg:mb-8">
+                <div id="contact1" class="w-[28%] min-h-36 text-center text-lg relative p-4 max-lg:w-full">
                     <p class="text-2xl text-[#046307]"><i class="bi bi-person-fill"></i></p>
                     <p class="absolute w-full top-[50%] left-[50%] -translate-[50%] text-shadow-sm max-lg:text-xl"><a
                             href="tel:0969457158">+380 (96) 945 71 58</a></p>
                 </div>
-                <div class="w-[28%] min-h-36 text-center text-sm p-4 max-lg:w-full">
+                <div id="contact2" class="w-[28%] min-h-36 text-center text-sm p-4 max-lg:w-full">
                     <p class="text-2xl text-[#046307]"><i class="bi bi-geo-alt-fill"></i></p>
                     <p class="text-shadow-sm max-lg:text-xl">вул. Михайла Косила, 20<br>
                         Франківська обл.<br>
@@ -430,7 +421,7 @@
                         Україна
                     </p>
                 </div>
-                <div class="w-[28%] min-h-36 text-center text-lg relative p-4 max-lg:w-full">
+                <div id="contact3" class="w-[28%] min-h-36 text-center text-lg relative p-4 max-lg:w-full">
                     <p class="text-2xl text-[#046307]"><i class="bi bi-envelope-at-fill"></i></p>
                     <p class="absolute top-[50%] left-[50%] -translate-[50%] text-shadow-sm max-lg:text-xl"><a
                             href="mailto:karpasol25@gmail.com">karpasol25@gmail.com</a></p>
@@ -438,6 +429,7 @@
             </div>
         </div>
     </section>
+    
     <section class="map flex w-full flex-col place-content-center place-items-center">
         <div class="mt-[5%] flex w-full flex-col place-content-center place-items-center gap-5">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1363.0066482861062!2d24.5905073!3d48.3145264!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4736e1005d66e7ab%3A0x81704d488526d365!2sKarpasol%CA%B9!5e1!3m2!1sru!2sua!4v1754482896907!5m2!1sru!2sua"
@@ -471,14 +463,24 @@
         </div>
     </footer>
     -->
-    <div class="bottom w-full bg-black px-[10%] py-1 max-md:px-4">
+    <footer class="bottom w-full bg-black px-[10%] py-1 max-md:px-4">
         <div class="flex justify-between items-center max-md:text-center">
             <p class="max-md:shrink-0"><a href="assets/doc.pdf" class="text-xs text-gray-400" target="_blank">Публічна оферта</a></p>
-            <p class="text-gray-400 text-xs">Created by <a
+            <p class="text-gray-400 text-xs">З &#10084; від <a
                     href="https://www.youtube.com/channel/UC-ii73NUvqnJhGpieMlMstQ" target="_blank" title="Follow me"
                     class="author text-sm uppercase">uniworker</a></p>
             <p class="text-xs text-gray-400">Всі права захищено © Karpasole 2O25</p>
         </div>
-    </div>
+    </footer>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5SM66PR3');
+    </script>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SM66PR3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </body>
 </html>

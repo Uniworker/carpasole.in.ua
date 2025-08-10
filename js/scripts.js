@@ -1,16 +1,5 @@
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
 const RESPONSIVE_WIDTH = 1024
-
-gsap.registerPlugin(ScrollTrigger)
-
+var submitted = false
 let headerWhiteBg = false
 let isHeaderCollapsed = window.innerWidth < RESPONSIVE_WIDTH
 const collapseHeaderItems = document.getElementById("collapsed-items")
@@ -37,86 +26,33 @@ const formEls = [
     form.elements.email,
     form.elements.message
 ];
-formEls.forEach((element, index) => {
-    const maxLength = element.getAttribute('maxlength');
-    const counterElement = document.getElementById(`counter${index}`);
-    if (counterElement && maxLength) {
-        counterElement.innerHTML = `${maxLength}`;
+
+function fadeOut(oObj, time, delay) {
+    if (time == null) var time = 500;
+    if (delay == null) var delay = 50;
+    if (time > 0) {
+        time -= delay;
+        oObj.style.opacity = parseFloat(oObj.style.opacity) - (parseFloat(oObj.style.opacity) / (time / delay));
+        window.setTimeout(function (_oObj, _time) { return function () { fadeOut(_oObj, _time) } }(oObj, time), delay);
+    } else {
+        oObj.style.opacity = '1';
+        oObj.style.visibility = 'hidden';
     }
-});
-form.addEventListener('input', (e) => {
-    const targetElement = e.target;
-    const index = formEls.indexOf(targetElement);
-    if (index !== -1) {
-        const maxLength = targetElement.getAttribute('maxlength');
-        const counterElement = document.getElementById(`counter${index}`);
-        if (counterElement && maxLength) {
-            counterElement.innerHTML = `${maxLength - targetElement.value.length}`;
-        }
+}
+
+function fadeIn(oObj, time, delay) {
+    if (oObj.style.visibility != 'visible') {
+        oObj.style.visibility = 'visible';
+        oObj.style.opacity = '0';
     }
-    form.elements.phone.value = targetElement.value.replace(/[^0-9,+]/g, '')
-});
-
-gsap.to("#hero-section", {
-    scale: 1,
-    duration: 30
-})
-
-gsap.to(expandingBg, {
-
-    height: "100%",
-    duration: 3,
-    scrollTrigger: {
-        trigger: "#hero-section",
-        // pin: true, 
-        start: "50px 10px", // when the top of the trigger hits the top of the viewport
-        end: "80px 50px",
-        scrub: 1,
-        // markers: true
+    if (time == null) var time = 500
+    if (delay == null) var delay = 50
+    if (time > 0) {
+        time -= delay;
+        oObj.style.opacity = parseFloat(oObj.style.opacity) + (1 - parseFloat(oObj.style.opacity)) / (time / delay);
+        window.setTimeout(function (_oObj, _time) { return function () { fadeIn(_oObj, _time) } }(oObj, time), delay);
     }
-
-})
-
-ScrollTrigger.create({
-    trigger: "#hero-section",
-    start: "50px 10px", // when the top of the trigger hits the top of the viewport
-    end: "60px 40px",
-    scrub: 1,
-    // markers: true,
-    onEnter: () => {
-        const headerLinks = document.querySelectorAll(".header-links")
-
-        headerLinks.forEach(e => {
-            e.classList.add("header-white-bg")
-        })
-        if (isHeaderCollapsed){
-            collapseBtn.classList.add("primary-text-color")
-        }
-        headerWhiteBg = true
-    },
-    onEnterBack: () => {
-        const headerLinks = document.querySelectorAll(".header-links")
-
-        headerLinks.forEach(e => {
-            e.classList.remove("header-white-bg")
-        })
-        collapseBtn.classList.remove("primary-text-color")
-        collapseBtn.classList.add("tw-text-white")
-        headerWhiteBg = false
-    }
-})
-
-const cottage1Container = document.querySelector(".cottage1-container")
-const cottage1SlideShow = new SlideShow(cottage1Container, false, 5000)
-
-const cottage2Container = document.querySelector(".cottage2-container")
-const cottage2SlideShow = new SlideShow(cottage2Container, false, 5000)
-
-const cottage3Container = document.querySelector(".cottage3-container")
-const cottage3SlideShow = new SlideShow(cottage3Container, false, 5000)
-
-const reviewContainer = document.querySelector(".review-container")
-const reviewSlideShow = new SlideShow(reviewContainer, true, 10000)
+}
 
 function onHeaderClickOutside(e) {
     if (!collapseHeaderItems.contains(e.target)) {
@@ -127,13 +63,11 @@ function onHeaderClickOutside(e) {
 function toggleHeader() {
     console.log("Collapse", isHeaderCollapsed)
     if (isHeaderCollapsed) {
-        // collapseHeaderItems.classList.remove("max-md:tw-opacity-0")
         collapseHeaderItems.classList.add("!tw-opacity-100")
         collapseHeaderItems.style.width = "50vw"
         collapseBtn.classList.remove("bi-list", "primary-text-color")
         collapseBtn.classList.add("bi-x", "tw-text-white")
         isHeaderCollapsed = false
-
         setTimeout(() => window.addEventListener("click", onHeaderClickOutside), 1)
 
     } else {
@@ -146,31 +80,264 @@ function toggleHeader() {
 
     }
 }
-if (window.innerWidth > RESPONSIVE_WIDTH) {
-    collapseHeaderItems.style.width = ""
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('#popup1')) {
-            modal.open()
-            modal.setContent(`<h1 class="text-xl text-center tenor-sans font-bold bg-black text-white">Підписуйтеся на наш ТікТок та Інстаграм</h1>
+
+if (document.readyState == "interactive") {
+    document.body.dataset.loaded = false
+    document.documentElement.style.cssText = 'background: #fff;overflow:hidden; pointer-events: none';
+    fadeIn(document.body, 1500, 30)
+    var loader = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    loader.setAttribute("id", "loader")
+    loader.setAttribute("viewBox", "0 0 50 50");
+    var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circle.setAttribute("cx", "25");
+    circle.setAttribute("cy", "25");
+    circle.setAttribute("r", "20");
+    loader.appendChild(circle);
+    loader.style.cssText = "position:absolute;top:50%;left:50%;translate:-50%;z-index:999"
+    document.body.appendChild(loader);
+    setInterval(() => {
+        document.documentElement.style.cssText = 'background: none;overflow:visible; pointer-events: all';
+        loader.remove()
+        document.body.dataset.loaded = true
+    }, 1500)
+    document.addEventListener('DOMContentLoaded', main())
+} else {
+    document.body.dataset.loaded = true
+    main()
+}
+
+
+function main() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    formEls.forEach((element, index) => {
+        const maxLength = element.getAttribute('maxlength');
+        const counterElement = document.getElementById(`counter${index}`);
+        if (counterElement && maxLength) {
+            counterElement.innerHTML = `${maxLength}`;
+        }
+    });
+    form.addEventListener('input', (e) => {
+        const targetElement = e.target;
+        const index = formEls.indexOf(targetElement);
+        if (index !== -1) {
+            const maxLength = targetElement.getAttribute('maxlength');
+            const counterElement = document.getElementById(`counter${index}`);
+            if (counterElement && maxLength) {
+                counterElement.innerHTML = `${maxLength - targetElement.value.length}`;
+            }
+        }
+        if (targetElement === form.elements.phone) {
+            form.elements.phone.value = targetElement.value.replace(/[^0-9,+]/g, '');
+        }
+    });
+    form.elements.sender.addEventListener('submit', (e) => {
+        fadeOut(e.target.parentNode, 1000, 20)
+        setTimeout(() => {
+            document.getElementById('formloader').removeAttribute('hidden')
+            setTimeout(() => {
+                document.getElementById('formloader').setAttribute('hidden', '')
+                fadeIn(e.target.parentNode, 1000, 20)
+                form.reset()
+            }, 1500)
+        }, 1000);
+    })
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    gsap.to(expandingBg, {
+        height: "100%",
+        duration: 3,
+        scrollTrigger: {
+            trigger: "#hero-section",
+            start: "50px 10px", // when the top of the trigger hits the top of the viewport
+            end: "80px 50px",
+            scrub: 1,
+        }
+
+    })
+
+    gsap.to("#popup1", {
+        scale: 100,
+        opacity: 1,
+        duration: 1,
+        delay: 1,
+        scrollTrigger: {
+            trigger: "#hero-section",
+            toggleActions: "restart none restart none"
+        }
+    })
+
+    gsap.to("#title1", {
+        scale: 100,
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+        scrollTrigger: {
+            trigger: "#about",
+            start: "top top",
+            toggleActions: "play none complete none"
+        }
+    })
+
+    gsap.to("#title3", {
+        scale: 100,
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+        scrollTrigger: {
+            trigger: "#feedback",
+            start: "top top",
+            toggleActions: "play none complete none"
+        }
+    })
+
+    gsap.to("#card1", {
+        scale: 100,
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+        scrollTrigger: {
+            trigger: "#booking",
+            start: "top top",
+            toggleActions: "play none complete none"
+        }
+    })
+
+    gsap.to("#card2", {
+        scale: 100,
+        opacity: 1,
+        duration: 1,
+        delay: 0.4,
+        scrollTrigger: {
+            trigger: "#booking",
+            start: "top top",
+            toggleActions: "play none complete none"
+        }
+    })
+
+    gsap.to("#card3", {
+        scale: 100,
+        opacity: 1,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: {
+            trigger: "#booking",
+            start: "top top",
+            toggleActions: "play none complete none"
+        }
+    })
+
+    gsap.to("#contact1", {
+        scale: 100,
+        opacity: 1,
+        duration: 1,
+        delay: 0.2,
+        scrollTrigger: {
+            trigger: "#review",
+            start: "top top",
+            toggleActions: "play none complete none"
+        }
+    })
+
+    gsap.to("#contact2", {
+        scale: 100,
+        opacity: 1,
+        duration: 1,
+        delay: 0.4,
+        scrollTrigger: {
+            trigger: "#review",
+            start: "top top",
+            toggleActions: "play none complete none"
+        }
+    })
+
+    gsap.to("#contact3", {
+        scale: 100,
+        opacity: 1,
+        duration: 1,
+        delay: 0.6,
+        scrollTrigger: {
+            trigger: "#review",
+            start: "top top",
+            toggleActions: "play none complete none"
+        }
+    })
+
+    ScrollTrigger.create({
+        trigger: "#hero-section",
+        start: "50px 10px",
+        end: "60px 40px",
+        scrub: 1,
+        onEnter: () => {
+            const headerLinks = document.querySelectorAll(".header-links")
+
+            headerLinks.forEach(e => {
+                e.classList.add("header-white-bg")
+            })
+            if (isHeaderCollapsed) {
+                collapseBtn.classList.add("primary-text-color")
+            }
+            headerWhiteBg = true
+        },
+        onEnterBack: () => {
+            const headerLinks = document.querySelectorAll(".header-links")
+
+            headerLinks.forEach(e => {
+                e.classList.remove("header-white-bg")
+            })
+            collapseBtn.classList.remove("primary-text-color")
+            collapseBtn.classList.add("tw-text-white")
+            headerWhiteBg = false
+        }
+    })
+
+    const cottage1Container = document.querySelector(".cottage1-container")
+    const cottage1SlideShow = new SlideShow(cottage1Container, false, 5000)
+
+    const cottage2Container = document.querySelector(".cottage2-container")
+    const cottage2SlideShow = new SlideShow(cottage2Container, false, 5000)
+
+    const cottage3Container = document.querySelector(".cottage3-container")
+    const cottage3SlideShow = new SlideShow(cottage3Container, false, 5000)
+
+    const reviewContainer = document.querySelector(".review-container")
+    const reviewSlideShow = new SlideShow(reviewContainer, true, 10000)
+
+    if (window.innerWidth > RESPONSIVE_WIDTH) {
+        collapseHeaderItems.style.width = ""
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('#popup1')) {
+                modal.open()
+                modal.setContent(`<h1 class="text-xl text-center tenor-sans font-bold bg-black text-white">Підписуйтеся на наш ТікТок та Інстаграм</h1>
                 <video autoplay loop>
                 <source src="assets/video/lg.mp4" type="video/mp4">
                 <source src="assets/video/lg.webm" type="video/webm">
                 Your browser does not support the video tag.
                 </video>`)
-        }
-    })
-} else {
-    isHeaderCollapsed = true
-    collapseBtn.classList.add("bi-list", headerWhiteBg ? "primary-text-color" : null)
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('#popup1')) {
-            modal.open()
-            modal.setContent(`<h1 class="text-xl text-center tenor-sans font-bold bg-black text-white">Більше в нашому ТікТок та Інстаграм</h1>
+            }
+        })
+    } else {
+        isHeaderCollapsed = true
+        collapseBtn.classList.add("bi-list", headerWhiteBg ? "primary-text-color" : null)
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('#popup1')) {
+                modal.open()
+                modal.setContent(`<h1 class="text-xl text-center tenor-sans font-bold bg-black text-white">Більше в нашому ТікТок та Інстаграм</h1>
         <video autoplay loop>
         <source src="assets/video/sm.mp4" type="video/mp4">
         <source src="assets/video/sm.webm" type="video/webm">
         Your browser does not support the video tag.
     </video>`)
-        }
-    })
+            }
+        })
+    }
 }

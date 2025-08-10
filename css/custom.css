@@ -1,17 +1,53 @@
 :root{
     
     --header-underline: #F8B500;
-    --btn-color: #fff;/* button color*/
     --btn-bg: #046307;/* button bg color*/
 
     --primary-text-color: #0a0a0a;
     --input-border-color: #000;
 }
 
-#hero-section {
-    animation: slideshow 30s ease 3s alternate infinite;
-    background: url("../assets/images/slide0.jpg") no-repeat center;
-    background-size: cover;
+@keyframes spin {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
 
 @keyframes slideshow {
@@ -33,6 +69,57 @@
     100% {
         background: url("../assets/images/slide6.jpg") no-repeat center;
     }
+}
+
+@keyframes scroll {
+
+    0%,
+    20% {
+        -webkit-transform: translateY(0) scaleY(1) scaleX(1) translateZ(0);
+        transform: translateY(0) scaleY(1) scaleX(1) translateZ(0)
+    }
+
+    10% {
+        -webkit-transform: translateY(0) scaleY(1.2) scaleX(1.2) translateZ(0);
+        transform: translateY(0) scaleY(1.2) scaleX(1.2) translateZ(0);
+        opacity: 1
+    }
+
+    to {
+        -webkit-transform: translateY(20px) scaleY(2.5) scaleX(.5) translateZ(0);
+        transform: translateY(20px) scaleY(2.5) scaleX(.5) translateZ(0);
+        opacity: .1
+    }
+}
+
+#loader {
+    height: 64px;
+    width: 64px;
+    animation: spin 1s linear infinite;
+}
+
+#loader circle {
+    fill: none;
+    stroke: var(--btn-bg);
+    stroke-width: 4px;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+#hero-section {
+    animation: slideshow 30s ease 3s alternate infinite;
+    background: url("../assets/images/slide0.jpg") no-repeat center;
+    background-size: cover;
+}
+
+#header-title {
+    color: var(--btn-bg);
+    text-shadow: 2px 2px 2px var(--header-underline);
+}
+
+#popup1, #title1, #title3, #card1, #card2, #card3, #contact1, #contact2, #contact3 {
+    scale: 0.01;
+    opacity: 0.01;
 }
 
 html {
@@ -164,27 +251,6 @@ q::after {
     background-color: #fff;
 }
 
-@keyframes scroll {
-
-    0%,
-    20% {
-        -webkit-transform: translateY(0) scaleY(1) scaleX(1) translateZ(0);
-        transform: translateY(0) scaleY(1) scaleX(1) translateZ(0)
-    }
-
-    10% {
-        -webkit-transform: translateY(0) scaleY(1.2) scaleX(1.2) translateZ(0);
-        transform: translateY(0) scaleY(1.2) scaleX(1.2) translateZ(0);
-        opacity: 1
-    }
-
-    to {
-        -webkit-transform: translateY(20px) scaleY(2.5) scaleX(.5) translateZ(0);
-        transform: translateY(20px) scaleY(2.5) scaleX(.5) translateZ(0);
-        opacity: .1
-    }
-}
-
 .primary-text-color{
     color: var(--primary-text-color);
 }
@@ -199,7 +265,7 @@ q::after {
 
 .btn{
     padding: 10px 15px;
-    color: var(--btn-color);
+    color: #fff;
     background-color: var(--btn-bg);
     justify-content: center;
     align-items: center;
@@ -279,11 +345,6 @@ q::after {
     translate: 0 -50%;
 }
 
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -336,15 +397,6 @@ q::after {
 
 .contacts div {
     box-shadow: 0 3px 7px #ccc;
-}
-
-.fade {
-    animation: fadeEffect 1s ease-in-out;
-}
-
-@keyframes fadeEffect {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .stars {
@@ -442,13 +494,39 @@ q::after {
     -webkit-text-fill-color: transparent;
 }
 
-@keyframes fade {
-    from {
-        opacity: 0.4;
-    }
-    to {
-        opacity: 1;
-    }
+.fadein {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.fadeout {
+    animation: fadeOut 1s ease-in-out;
+}
+
+.loader {
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background:
+        linear-gradient(0deg, rgb(4 99 7/50%) 30%, #0000 0 70%, rgb(4 99 7/100%) 0) 50%/8% 100%,
+        linear-gradient(90deg, rgb(4 99 7/25%) 30%, #0000 0 70%, rgb(4 99 7/75%) 0) 50%/100% 8%;
+    background-repeat: no-repeat;
+    animation: spin 1s infinite steps(12);
+
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    transform: rotate(30deg);
+}
+
+.loader::after {
+    opacity: 0.83;
+    transform: rotate(60deg);
 }
 
 @media not all and (min-width: 1024px) {
@@ -471,7 +549,9 @@ q::after {
         overflow-y: scroll;
         box-shadow: 2px 0px 5px #000;
     }
-
+    section:not(:last-of-type) {
+        min-height: 100dvh;
+    }
     .header-links{
         color: white;
         font-size: 18px;
