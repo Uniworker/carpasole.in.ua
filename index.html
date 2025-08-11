@@ -333,7 +333,7 @@
                 </h3>
             </div>
             <div id="formloader" class="loader absolute w-16 left-[50%] top-[50%] translate-[100%]" hidden></div>
-            <form method="post" class="mt-4 flex min-w-[300px] flex-col place-content-center gap-3 p-2 max-lg:max-w-[350px] max-md:my-8" name="clients" id="clients" enctype="text/plain" autocomplete="on" action="https://docs.google.com/forms/d/e/1FAIpQLSfZaN_fJs_9_aWMOYSEaw9YHjokethCJJ-TJ7XfAjnIP5szLQ/formResponse?" target="redirect" onsubmit="submitted=true;">
+            <form class="mt-4 flex min-w-[300px] flex-col place-content-center gap-3 p-2 max-lg:max-w-[350px] max-md:my-8" name="clients" id="clients" enctype="text/plain" autocomplete="on" action="https://docs.google.com/forms/d/e/1FAIpQLSfZaN_fJs_9_aWMOYSEaw9YHjokethCJJ-TJ7XfAjnIP5szLQ/formResponse?" target="redirect" onsubmit="submitted=true;">
                 <div class="flex flex-col gap-4 max-lg:gap-8">
                     <div class="flex flex-col gap-1 relative">
                         <div class="text-gray-900">Ім'я<span class="text-red-500 font-bold">*</span></div>
@@ -472,15 +472,14 @@
             <p class="text-xs text-gray-400">Всі права захищено © Karpasole 2O25</p>
         </div>
     </footer>
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5SM66PR3');
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LN6ETEXK2Z"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-LN6ETEXK2Z');
     </script>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SM66PR3" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </body>
 </html>
