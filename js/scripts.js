@@ -21,10 +21,10 @@ const modal = new tingle.modal({
 })
 const form = document.forms.clients
 const formEls = [
-    form.elements.name,
-    form.elements.phone,
-    form.elements.email,
-    form.elements.message
+    form.elements[0],
+    form.elements[1],
+    form.elements[2],
+    form.elements[3]
 ];
 
 function fadeOut(oObj, time, delay) {
@@ -135,8 +135,8 @@ function main() {
                 counterElement.innerHTML = `${maxLength - targetElement.value.length}`;
             }
         }
-        if (targetElement === form.elements.phone) {
-            form.elements.phone.value = targetElement.value.replace(/[^0-9,+]/g, '');
+        if (targetElement === form.elements[1]) {
+            targetElement.value = targetElement.value.replace(/[^0-9,+]/g, '');
         }
     });
     form.elements.sender.addEventListener('submit', (e) => {
