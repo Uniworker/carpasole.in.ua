@@ -20,6 +20,9 @@ const modal = new tingle.modal({
     }
 })
 const form = document.forms.clients
+form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfZaN_fJs_9_aWMOYSEaw9YHjokethCJJ-TJ7XfAjnIP5szLQ/formResponse?'
+form.method = 'GET'
+form.target = 'redirect'
 const formEls = [
     form.elements[0],
     form.elements[1],
@@ -125,6 +128,7 @@ function main() {
             counterElement.innerHTML = `${maxLength}`;
         }
     });
+    
     form.addEventListener('input', (e) => {
         const targetElement = e.target;
         const index = formEls.indexOf(targetElement);
@@ -138,17 +142,27 @@ function main() {
         if (targetElement === form.elements[1]) {
             targetElement.value = targetElement.value.replace(/[^0-9,+]/g, '');
         }
-    });
-    form.elements.sender.addEventListener('submit', (e) => {
-        fadeOut(e.target.parentNode, 1000, 20)
+    })
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        submitted = true
         setTimeout(() => {
+            fadeOut(form, 1000, 20)
             document.getElementById('formloader').removeAttribute('hidden')
+            form.submit()
+        }, 1500);
+    })
+
+    document.getElementById('redirect').addEventListener('load', (e) => {
+        if (submitted) {
+            submitted = false
             setTimeout(() => {
-                document.getElementById('formloader').setAttribute('hidden', '')
-                fadeIn(e.target.parentNode, 1000, 20)
                 form.reset()
+                document.getElementById('formloader').setAttribute('hidden', '')
+                fadeIn(form, 1000, 20)
             }, 1500)
-        }, 1000);
+        }
     })
 
     gsap.registerPlugin(ScrollTrigger)
@@ -176,7 +190,7 @@ function main() {
         }
     })
 
-    gsap.to("#title1", {
+    gsap.to("#anim1", {
         scale: 100,
         opacity: 1,
         duration: 1,
@@ -184,11 +198,11 @@ function main() {
         scrollTrigger: {
             trigger: "#about",
             start: "top top",
-            toggleActions: "play none complete none"
+            toggleActions: "play pause resume pause"
         }
     })
 
-    gsap.to("#title3", {
+    gsap.to("#clients", {
         scale: 100,
         opacity: 1,
         duration: 1,
@@ -196,7 +210,7 @@ function main() {
         scrollTrigger: {
             trigger: "#feedback",
             start: "top top",
-            toggleActions: "play none complete none"
+            toggleActions: "play pause resume pause"
         }
     })
 
@@ -208,7 +222,7 @@ function main() {
         scrollTrigger: {
             trigger: "#booking",
             start: "top top",
-            toggleActions: "play none complete none"
+            toggleActions: "play pause resume pause"
         }
     })
 
@@ -220,7 +234,7 @@ function main() {
         scrollTrigger: {
             trigger: "#booking",
             start: "top top",
-            toggleActions: "play none complete none"
+            toggleActions: "play pause resume pause"
         }
     })
 
@@ -232,7 +246,7 @@ function main() {
         scrollTrigger: {
             trigger: "#booking",
             start: "top top",
-            toggleActions: "play none complete none"
+            toggleActions: "play pause resume pause"
         }
     })
 
@@ -244,7 +258,7 @@ function main() {
         scrollTrigger: {
             trigger: "#review",
             start: "top top",
-            toggleActions: "play none complete none"
+            toggleActions: "play pause resume pause"
         }
     })
 
@@ -256,7 +270,7 @@ function main() {
         scrollTrigger: {
             trigger: "#review",
             start: "top top",
-            toggleActions: "play none complete none"
+            toggleActions: "play pause resume pause"
         }
     })
 
@@ -268,7 +282,7 @@ function main() {
         scrollTrigger: {
             trigger: "#review",
             start: "top top",
-            toggleActions: "play none complete none"
+            toggleActions: "play pause resume pause"
         }
     })
 

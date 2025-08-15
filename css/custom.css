@@ -117,7 +117,7 @@
     text-shadow: 2px 2px 2px var(--header-underline);
 }
 
-#popup1, #title1, #title3, #card1, #card2, #card3, #contact1, #contact2, #contact3 {
+#popup1, #anim1, #clients, #card1, #card2, #card3, #contact1, #contact2, #contact3 {
     scale: 0.01;
     opacity: 0.01;
 }
