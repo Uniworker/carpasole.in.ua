@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://www.google.com/recaptcha/api.js" defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcfYaorAAAAAHxLxDYR_bATGztdtTw6TyLdSuvc"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     <script src="js/tingle.min.js" defer></script>
@@ -353,9 +353,9 @@
                         <textarea class="input max-h-[250px] min-h-[40px] w-full resize-y" name="entry.1166974658" id="entry.1166974658" placeholder="Ваші побажання" maxlength="150"></textarea>
                         <span id="counter3" class="text-sm absolute top-0 left-[95%] text-gray-500 font-bold"></span>
                     </div>
-                    <div class="g-recaptcha flex items-center w-full flex-col gap-2 relative" data-sitekey="6LcfYaorAAAAAHxLxDYR_bATGztdtTw6TyLdSuvc"></div>
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
                 </div>
-                <button type="submit" name="sender" class="g-recaptcha btn w-full cursor-pointer transition-transform duration-[0.3s] hover:translate-x-2" data-sitekey="6LcfYaorAAAAAHxLxDYR_bATGztdtTw6TyLdSuvc" data-callback="onCheck" data-action="submit">
+                <button type="submit" name="sender" class="g-recaptcha btn mt-3 w-full cursor-pointer transition-transform duration-[0.3s] hover:translate-x-2" data-sitekey="6LcfYaorAAAAAHxLxDYR_bATGztdtTw6TyLdSuvc" data-callback="onCheck" data-action="submit">
                     <span>Надіслати</span>
                     <i class="bi bi-arrow-right"></i>
                 </button>

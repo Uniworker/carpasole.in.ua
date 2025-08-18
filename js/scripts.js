@@ -84,10 +84,6 @@ function toggleHeader() {
     }
 }
 
-function onCheck(token) {
-    document.getElementById("clients").submit();
-}
-
 if (document.readyState == "interactive") {
     document.body.dataset.loaded = false
     document.documentElement.style.cssText = 'background: #fff;overflow:hidden; pointer-events: none';
@@ -168,6 +164,13 @@ function main() {
             }, 1500)
         }
     })
+
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6LcfYaorAAAAAHxLxDYR_bATGztdtTw6TyLdSuvc', { action: 'submit' })
+            .then(function (token) {
+                document.getElementById('g-recaptcha-response').value = token;
+            });
+    });
 
     gsap.registerPlugin(ScrollTrigger)
 
