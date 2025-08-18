@@ -20,7 +20,7 @@ const modal = new tingle.modal({
     }
 })
 const form = document.forms.clients
-form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSfZaN_fJs_9_aWMOYSEaw9YHjokethCJJ-TJ7XfAjnIP5szLQ/formResponse?'
+form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdXR6fhhmyPvkKoflEpDWHLcM5BhD5yhEm1cMEM9JDfWIuJ-w/formResponse?'
 form.method = 'GET'
 form.target = 'redirect'
 const formEls = [
@@ -82,6 +82,10 @@ function toggleHeader() {
         window.removeEventListener("click", onHeaderClickOutside)
 
     }
+}
+
+function onCheck(token) {
+    document.getElementById("clients").submit();
 }
 
 if (document.readyState == "interactive") {
